@@ -44,10 +44,16 @@ def Check_India(geo_coordinates):
         return False
 
 
+def to_string(l):
+    for i in range(len(l)):
+        for e in range(len(l[i])):
+            l[i][e] = str(l[i][e])
+    return l
+
 def to_xyz(l):
     file = open(r"Poverty.xyz", "w")
     for i in l:
-        file.write(" ".join(i))
+        file.write(" ".join(i) + "\n")
     file.close()
 
 
