@@ -6,6 +6,7 @@
 import csv
 import reverse_geocoder as rg
 import pprint
+from geopy.geocoders import Nominatim
 
 def to_list(file):
     """Converts an Ascii XYZ gridded file into a list of lists with the 0th index being lattiude, 1st index
@@ -43,6 +44,14 @@ def Check_India(geo_coordinates):
     else:
         return False
 
+def Check_India2(geo_coordinates):
+    geolocator = Nominatim(user_agent="geoapiExercises")
+    Latitude = "25.594095"
+    Longitude = "85.137566"
+
+    location = geolocator.reverse(Latitude + "," + Longitude)
+    return location
+    #location = geolocator.reverse(str(geo_coordinates[1]) + "," + str(geo_coordinates[0]))
 
 def to_string(l):
     for i in range(len(l)):
@@ -58,3 +67,5 @@ def to_xyz(l):
 
 
 if __name__ == "__main__":
+    for i in range(100):
+        print(Check_India2((34, 34)))
