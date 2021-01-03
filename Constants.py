@@ -1,7 +1,8 @@
-import requests
-import csv
+
 import json
 
+from shapely.geometry import shape
+from shapely.prepared import prep
 
 
 # def get_coord_iter(csv_file):
@@ -12,5 +13,18 @@ import json
 def initialize():
     global country_data
     global state_data
-    country_data = requests.get("https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson").json()
-    state_data = requests.get("https://raw.githubusercontent.com/Subhash9325/GeoJson-Data-of-Indian-States/master/Indian_States").json()
+    global India
+    global States
+    with open("countries.geojson.txt") as countries:
+        country_data = json.load(countries)
+    with open("Indian_States.txt") as states:
+        state_data = json.load(states)
+    India = dict()
+    for feature in country_data["features"]:
+        if feature['properties']['ADMIN'] == "India":
+            geom = feature["geometry"]
+            India['India'] = prep(shape(geom))
+    States = dict()
+    # noinspection PyUnresolvedReferences
+    for feature in state_data["features"]:
+        States[feature['properties']["NAME_1"]] = prep(shape(feature['geometry']))
