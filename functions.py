@@ -51,21 +51,6 @@ def clean_round_coords(file, key1, key2, rounded_vals):
                     rounded_vals[f'{rounded_coords[0]}_{rounded_coords[1]}'] = {key2: 0, key1: float(row[2])}
 
 
-def output_xyz(rounded_vals):
-    poverty = open('poverty.xyz', 'w')
-    for i in rounded_vals.keys():
-        p = rounded_vals[i]['pop']
-        p = float(p)
-        l = rounded_vals[i]['light']
-        l = float(l)
-        coords = i.split('_')
-        if p == 0:
-            poverty.write(f"{coords[0]} {coords[1]} {float(0)}" + "\n")
-        else:
-            poverty.write(f"{coords[0]} {coords[1]} {float(l / p)}" + "\n")
-    poverty.close()
-
-
 def output_csv(rounded_vals):
     poverty = open('poverty2.csv', 'w')
     for i in rounded_vals.keys():
@@ -112,4 +97,19 @@ def to_xyz(l):
     for i in l:
         file.write(" ".join(i) + "\n")
     file.close()
+
+
+def output_xyz(rounded_vals):
+    poverty = open('poverty.xyz', 'w')
+    for i in rounded_vals.keys():
+        p = rounded_vals[i]['pop']
+        p = float(p)
+        l = rounded_vals[i]['light']
+        l = float(l)
+        coords = i.split('_')
+        if p == 0:
+            poverty.write(f"{coords[0]} {coords[1]} {float(0)}" + "\n")
+        else:
+            poverty.write(f"{coords[0]} {coords[1]} {float(l / p)}" + "\n")
+    poverty.close()
 '''
