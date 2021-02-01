@@ -67,17 +67,17 @@ def output_xyz(rounded_vals):
 
 
 def output_csv(rounded_vals):
-    poverty = open('poverty2.csv', 'w')
+    poverty = open('poverty.csv', 'w')
     for i in rounded_vals.keys():
         p = rounded_vals[i]['pop']
         p = float(p)
         l = rounded_vals[i]['light']
         l = float(l)
         coords = i.split('_')
-        if p == 0:
+        if l == 0:
             poverty.write(f"{coords[0]},{coords[1]},{float(0)}" + "\n")
         else:
-            poverty.write(f"{coords[0]},{coords[1]},{float((l / p) * 100)}" + "\n")
+            poverty.write(f"{coords[0]},{coords[1]},{float((p / l) * 100)}" + "\n")
     poverty.close()
 
 
