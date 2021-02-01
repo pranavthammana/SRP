@@ -15,74 +15,22 @@ if __name__ == "__main__":
     functions.clean_round_coords(r"C:\Users\vtham\Downloads\SRP_Light+Pop\India_2012_VIIRS.xyz", "light", "pop",
                                  rounded_vals)
 
-    State_vals = {}  # Format: {"State": {"pop": __, "light" __}...}
-    for i in rounded_vals.keys():
-        coords = i.split("_")
-        coords[0] = float(coords[0])
-        coords[1] = float(coords[1])
-        print(coords)
-        if functions.Check_State(coords) in State_vals.keys():
-            State_vals[functions.Check_State(coords)]['pop'] += rounded_vals[i]['pop']
-            State_vals[functions.Check_State(coords)]['light'] += rounded_vals[i]['light']
-        else:
-            State_vals[functions.Check_State(coords)] = {'pop': rounded_vals[i]['pop'],
-                                                         'light': rounded_vals[i]['light']}
+    functions.output_csv(rounded_vals)
+    #
+    # State_vals = {}  # Format: {"State": {"pop": __, "light" __}...}
+    # for i in rounded_vals.keys():
+    #     coords = i.split("_")
+    #     coords[0] = float(coords[0])
+    #     coords[1] = float(coords[1])
+    #     print(coords)
+    #     if functions.Check_State(coords) in State_vals.keys():
+    #         State_vals[functions.Check_State(coords)]['pop'] += rounded_vals[i]['pop']
+    #         State_vals[functions.Check_State(coords)]['light'] += rounded_vals[i]['light']
+    #     else:
+    #         State_vals[functions.Check_State(coords)] = {'pop': rounded_vals[i]['pop'],
+    #                                                      'light': rounded_vals[i]['light']}
 
-    print(State_vals)
-
-    # functions.output_csv(rounded_vals)
-#######################################################################################################################
-# 2.5 Check whether the coordinate is in India, if not skip
-#######################################################################################################################
-
-#######################################################################################################################
-# 3. Round the latitude and longitude for each "point"/element to the 4th decimal point.
-#######################################################################################################################
-
-#######################################################################################################################
-# 4. Create a key in the dict "rounded_vals" for that rounded latitude and longitude and add the band number to that
-#     part of the dictionary.  If we end up with multiple co-ordinates rounding to the same value, then add the
-#     band numbers for both. Final dictionary would have the following format:
-#     {"Values": {"Lat_long": {'pop': dd, 'light': dd}... }
-#######################################################################################################################
-
-#######################################################################################################################
-# 5. Create a new key in the pop, light dictionary within "rounded_vals" by dividing light by pop. The new key will be
-#    "l/p"
-#######################################################################################################################
-
-#######################################################################################################################
-# 6. Create a new text file called "poverty.xyz" and for each line the format will be...
-#    "Latitude Longitude l/p"
-#######################################################################################################################
-
-
-#######################################################################################################################
-# 2. Open the relevant file (whether that be light intensity or population density)
-# The format of the file is ascii with "latitude longitude band_value"
-# In each file, it provides the map co-ordinates, and the relevant light intensity or population density for that point.
-#######################################################################################################################
-
-#######################################################################################################################
-# 3. Round the latitude and longitude for each "point"/element to the 4th decimal point.
-#######################################################################################################################
-
-#######################################################################################################################
-# 4. Create a key in the dict "rounded_vals" for that rounded latitude and longitude and add the band number to that
-#     part of the dictionary.  If we end up with multiple co-ordinates rounding to the same value, then add the
-#     band numbers for both. Final dictionary would have the following format:
-#     {"Values": {"Lat_long": {'pop': dd, 'light': dd}... }
-#######################################################################################################################
-
-#######################################################################################################################
-# 5. Create a new key in the pop, light dictionary within "rounded_vals" by dividing light by pop. The new key will be
-#    "l/p"
-#######################################################################################################################
-
-#######################################################################################################################
-# 6. Create a new text file called "poverty.xyz" and for each line the format will be...
-#    "Latitude Longitude l/p"
-#######################################################################################################################
+#    print(State_vals)
 
 # {None: {'pop': 3620163.0, 'light': 32638.35999527946}, 'Jammu and Kashmir': {'pop': 12456568.0,
 # 'light': 147629.84996567108}, 'Himachal Pradesh': {'pop': 6864665.0, 'light': 56917.9899612125}, 'Punjab': {'pop':
