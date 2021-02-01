@@ -15,7 +15,7 @@ if __name__ == "__main__":
     functions.clean_round_coords(r"C:\Users\vtham\Downloads\SRP_Light+Pop\India_2012_VIIRS.xyz", "light", "pop",
                                  rounded_vals)
 
-    #functions.output_csv(rounded_vals)
+    functions.output_csv(rounded_vals)
     
     State_vals = {}  # Format: {"State": {"pop": __, "light" __}...}
     for i in rounded_vals.keys():
