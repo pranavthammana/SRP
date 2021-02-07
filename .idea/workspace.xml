@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de23312a-71b2-4d35-a625-6e7d70a8a9c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Dict_to_Excel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scam.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SRP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SRP.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +78,8 @@
       <workItem from="1612134601684" duration="2279000" />
       <workItem from="1612246529944" duration="13000" />
       <workItem from="1612495008774" duration="1680000" />
+      <workItem from="1612588607822" duration="32000" />
+      <workItem from="1612719205357" duration="83000" />
     </task>
     <servers />
   </component>
